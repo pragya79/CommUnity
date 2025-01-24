@@ -95,7 +95,7 @@ We welcome contributions to improve CommUnity! Follow these steps:
 
 If you have any questions or feedback, feel free to reach out:
 - **Email**: pragyaxibs4834@gmail.com
-- **LinkedIn**: linkedin.com/in/pragya-sharma-4a2136260/
+- **LinkedIn**: (linkedin.com/in/pragya-sharma-4a2136260/)
 
 ---
 
