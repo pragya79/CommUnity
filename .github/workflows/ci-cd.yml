@@ -76,4 +76,11 @@ jobs:
           subject: "CommUnity CI/CD Pipeline Completed"
           to: ${{ secrets.EMAIL_TO }}
           from: "GitHub Actions"
-          body: "The CI/CD pipeline for CommUnity has been successfully completed on branch ${{ github.ref_name }}."
+          body: |
+            📝 **Commit Details**  
+            - **Author:** ${{ github.actor }}
+            - **Branch:** ${{ github.ref_name }}
+            - **Commit Message:** ${{ github.event.head_commit.message }}
+            - **Commit URL:** ${{ github.event.head_commit.url }}
+      
+            ✅ The latest changes have been pushed to the repository.
