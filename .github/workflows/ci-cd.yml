@@ -1,0 +1,79 @@
+name: CommUnity CI/CD Pipeline
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Server Dependencies
+        run: |
+          cd server
+          npm install
+
+      - name: Install Client Dependencies
+        run: |
+          cd client
+          npm install
+
+      - name: Run Server Tests
+        run: |
+          cd server
+          npm test
+
+      - name: Run Client Tests
+        run: |
+          cd client
+          npm test
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Deploy Application
+        run: |
+          echo "Deploying CommUnity application..."
+          # Add actual deployment commands here (e.g., Firebase, Vercel, or DigitalOcean)
+
+  notify:
+    needs: deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Slack Notification
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{
+            "text": "🚀 CommUnity CI/CD Pipeline Completed for ${{ github.repository }} on branch ${{ github.ref_name }}"
+          }' $SLACK_WEBHOOK_URL
+
+      - name: Send Email Notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.EMAIL_HOST }}
+          server_port: ${{ secrets.EMAIL_PORT }}
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "CommUnity CI/CD Pipeline Completed"
+          to: ${{ secrets.EMAIL_TO }}
+          from: "GitHub Actions"
+          body: "The CI/CD pipeline for CommUnity has been successfully completed on branch ${{ github.ref_name }}."
