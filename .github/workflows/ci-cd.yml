@@ -72,7 +72,7 @@ jobs:
           server_address: ${{ secrets.EMAIL_HOST }}
           server_port: ${{ secrets.EMAIL_PORT }}
           username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+          password: ${{ secrets.SMTP_PASSWORD }}
           subject: "CommUnity CI/CD Pipeline Completed"
           to: ${{ secrets.EMAIL_TO }}
           from: "GitHub Actions"
