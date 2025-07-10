@@ -68,7 +68,7 @@ const App = () => {
   }, [loading]);
 
   if (loading) {
-    return <div className="loading-screen">Initializing app...</div>;
+    return <div className="loading-screen">Welcome to CommUnity</div>;
   }
 
   return (

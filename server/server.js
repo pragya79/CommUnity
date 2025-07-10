@@ -12,7 +12,7 @@ const app = express();
 const PORT = 5000;
 
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: `${process.env.FRONTEND_URL}`,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true, 
 }));
@@ -24,12 +24,12 @@ app.use("/api/msg", msgRoutes);
 app.use("/api/cloudinary",cloudinaryRoutes)
 
 mongoose
-  .connect("mongodb://localhost:27017/chatApp", { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(`${process.env.MONGO_URI}`, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log("MongoDB Connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
 app.use("/uploads", express.static("uploads"));
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on ${process.env.BACKEND_URL}`);
 });

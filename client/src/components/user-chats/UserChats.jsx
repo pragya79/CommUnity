@@ -39,7 +39,7 @@ export const UserChats = ({ fullName, avatar, userId, currentChatId ,currentChat
   useEffect(() => {
     const getMessages = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/api/msg/${currentChatId}`);
+        const res = await axios.get(`${process.env.VITE_BACKEND_URL}/api/msg/${currentChatId}`);
         console.log("RES", res.data);
         setMessages(res.data);
         const sentByUser = res.data.filter((msg) => msg.sender === senderId).length;
@@ -69,7 +69,7 @@ export const UserChats = ({ fullName, avatar, userId, currentChatId ,currentChat
     console.log("Sending message:", message); 
   
     try {
-      const res = await axios.post("http://localhost:5000/api/msg", message);
+      const res = await axios.post(`${process.env.VITE_BACKEND_URL}/api/msg`, message);
       console.log("Message sent successfully:", res.data);
       setMessages([...messages, res.data]);
       setNewMessage("");
@@ -90,7 +90,7 @@ export const UserChats = ({ fullName, avatar, userId, currentChatId ,currentChat
     formData.append('image', file);
   
     try {
-      const response = await axios.post('http://localhost:5000/api/cloudinary/upload', formData, {
+      const response = await axios.post(`${process.env.VITE_BACKEND_URL}/api/cloudinary/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log('Uploaded Image URL:', response.data.imageUrl);

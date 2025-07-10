@@ -12,7 +12,7 @@ export const Chat = ({ onSelectSender, currentChatId }) => {
     if (!userId || userInfo[userId]) return;
 
     try {
-      const res = await axios.get(`http://localhost:5000/api/users/getUser/${userId}`);
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/getUser/${userId}`);
       setUserInfo((prev) => ({
         ...prev,
         [userId]: res.data,
@@ -45,7 +45,7 @@ export const Chat = ({ onSelectSender, currentChatId }) => {
       if (!user || !user.firebaseId) return;
 
       try {
-        const res = await axios.get(`http://localhost:5000/api/chatConvo/${user.firebaseId}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/chatConvo/${user.firebaseId}`);
         if (Array.isArray(res.data)) {
           setConvo(res.data);
         } else {
@@ -70,7 +70,7 @@ export const Chat = ({ onSelectSender, currentChatId }) => {
     const getMessages = async () => {
       try {
         if (currentChatId) {
-          const res = await axios.get(`http://localhost:5000/api/msg/${currentChatId}`);
+          const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/msg/${currentChatId}`);
           const lastMessage = res.data[res.data.length - 1];
           if (lastMessage.chatConvoId === currentChatId) {
             setLastMsg(lastMessage);

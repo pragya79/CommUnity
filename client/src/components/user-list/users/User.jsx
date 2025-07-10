@@ -13,7 +13,7 @@ export const User = ({ user }) => {
     const userData = { fullName: newFullName };
 
     try {
-      const response = await fetch(`http://localhost:5000/api/users/update/${user.firebaseId}`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/update/${user.firebaseId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json', // Set content type to JSON

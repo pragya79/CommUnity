@@ -13,7 +13,7 @@ export const AddUser = ({ onAdd }) => {
     const username = formData.get('username');
 
     try {
-      const response = await axios.get(`/api/users?username=${username}`);
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users?username=${username}`);
       const fetchedUser = response.data;
 
       if (fetchedUser) {

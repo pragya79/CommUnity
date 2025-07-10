@@ -18,7 +18,7 @@ export const UserList = ({ currentUser, setSelectedSenderData }) => {
     const fetchUsers = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/users/getUsers?currentUserId=${currentUser.firebaseId}`
+          `${import.meta.env.VITE_BACKEND_URL}/api/users/getUsers?currentUserId=${currentUser.firebaseId}`
         );
         if (!response.ok) {
           throw new Error(`Failed to fetch users, status: ${response.status}`);
@@ -52,7 +52,7 @@ export const UserList = ({ currentUser, setSelectedSenderData }) => {
   const handleAddUserToChat = async (userId, fullName, avatar) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/chatConvo/${currentUser.firebaseId}/${userId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/chatConvo/${currentUser.firebaseId}/${userId}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -86,7 +86,7 @@ export const UserList = ({ currentUser, setSelectedSenderData }) => {
   const handleSelectSender = async (fullName, avatar, senderId,description) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/chatConvo/${currentUser.firebaseId}/${senderId}`
+        `${import.meta.env.VITE_BACKEND_URL}/api/chatConvo/${currentUser.firebaseId}/${senderId}`
       );
       if (!response.ok) {
         throw new Error(`Failed to fetch conversation, status: ${response.status}`);

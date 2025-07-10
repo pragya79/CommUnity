@@ -66,7 +66,7 @@ export const Login = ({ setHaveUser, setCurrentUser }) => {
       const userCredential = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
       const user = userCredential.user;
   
-      const response = await fetch(`http://localhost:5000/api/users/getUser`, {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/getUser`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ firebaseId: user.uid }),
@@ -132,7 +132,7 @@ export const Login = ({ setHaveUser, setCurrentUser }) => {
       const res = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
       const user = res.user;
   
-      const response = await fetch("http://localhost:5000/api/users/addUser", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/addUser`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
