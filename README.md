@@ -1,37 +1,44 @@
-# CommUnity
+# 💬 CommUnity
 
-### A Real-Time Chat Application
+### A Real-Time 🔐 Encrypted Chat Application
 
-CommUnity is a robust and user-friendly chat application designed to foster seamless communication. Built with modern web technologies, it offers a real-time messaging experience, secure authentication, and efficient media handling.
-
----
-
-## Features
-
-- **Real-Time Messaging**: Instant communication between users.
-- **Secure Authentication**: User authentication powered by Firebase.
-- **Media Uploads**: Efficient image handling with Cloudinary.
-- **Scalable Database**: MongoDB for storing user and message data.
-- **Responsive Design**: Works seamlessly on all device sizes.
+**CommUnity** is a secure, scalable, and user-friendly chat application designed to enable seamless real-time communication. Built with modern technologies like **React**, **Node.js**, **Firebase**, and **MongoDB**, it offers encrypted messaging using **AES**, image sharing via **Cloudinary**, and a responsive UI that adapts to all screen sizes.
 
 ---
 
-## Tech Stack
+## 🚀 Features
 
-### Frontend
-- **React**: For building a dynamic and interactive user interface.
+- 🔒 **AES Message Encryption**: Every message is encrypted using **AES (Advanced Encryption Standard)** to ensure end-to-end privacy and security.
+- 🔄 **Real-Time Messaging (via Polling)**: Instant message updates using efficient client-side polling in place of WebSockets.
+- ✅ **Firebase Authentication**: Secure, reliable user login and registration using **Firebase Auth**.
+- 🖼️ **Media Upload Support**: Easily upload and share images using **Cloudinary**.
+- 🗃️ **MongoDB Database**: Scalable and flexible **NoSQL** database for storing users and chat messages.
+- 📱 **Responsive UI**: Built with **React** and **Tailwind CSS** to work seamlessly across mobile, tablet, and desktop.
 
-### Backend
-- **Node.js**: For managing the server-side logic and APIs.
+---
 
-### Database
-- **MongoDB**: A NoSQL database for efficient data storage and retrieval.
+## 🧰 Tech Stack
 
-### Authentication
-- **Firebase**: Provides secure and reliable user authentication.
+### 🖥️ Frontend
+- **React** – Component-based UI library for dynamic interfaces.
+- **Tailwind CSS** – Utility-first CSS framework for styling.
+- **Vite** – Fast frontend build tool and development server.
 
-### Media Handling
-- **Cloudinary**: Handles image uploads and optimizations.
+### ⚙️ Backend
+- **Node.js** – JavaScript runtime for server-side logic.
+- **Express.js** – Minimalist web framework for building REST APIs.
+
+### 🗄️ Database
+- **MongoDB** – Document-based NoSQL database for efficient data management.
+
+### 🔐 Authentication
+- **Firebase Auth** – Handles secure login, registration, and session management.
+
+### 🌐 Media Handling
+- **Cloudinary** – Cloud-based image and media upload, transformation, and CDN.
+
+### 🔐 Encryption
+- **AES (Advanced Encryption Standard)** – Symmetric encryption algorithm for securing chat messages before storage/transmission.
 
 ---
 
@@ -81,7 +88,7 @@ Follow these steps to get the application up and running on your local machine:
 ---
 
 
-## Contributing
+## 🤝 Contributing
 
 We welcome contributions to improve CommUnity! Follow these steps:
 
@@ -91,7 +98,7 @@ We welcome contributions to improve CommUnity! Follow these steps:
 4. Push to the branch: `git push origin feature-name`.
 5. Open a pull request.
 
-## Contact
+## 📞 Contact
 
 If you have any questions or feedback, feel free to reach out:
 - **Email**: pragyaxibs4834@gmail.com
